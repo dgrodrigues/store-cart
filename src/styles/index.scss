@@ -1,0 +1,371 @@
+@import "./vars.scss";
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    box-sizing: border-box;
+}
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body {
+    min-height: 100vh;
+	background-color: $background-color;
+}
+
+#app {
+    display: flex;
+    min-height: 100vh;
+	justify-content: center;
+}
+
+h1 {
+	font-family: $font;
+	font-weight: 500;
+	font-size: 24px;
+	margin-bottom: 10px;
+}
+
+.nav-bar {
+	height: 56px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background-color: white;
+	box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.25);
+	z-index: 2;
+
+	@media only screen and (min-width: 568px) {
+		height: 112px;
+	}
+}
+
+.cart-intro {
+	font-family: $font;
+	font-size: 14px;
+	font-weight: 300;
+	letter-spacing: 0.08pt;
+	line-height: 24px;
+}
+
+.cart-container {
+	padding: 112px 18px;
+	width: 100%;
+
+	@media only screen and (min-width: 568px) {
+		max-width: 647px;
+		padding-top: 168px;
+	}
+}
+
+.cart-table {
+	width: 100%;
+	margin-top: 30px;
+
+	thead {
+		display: none;
+
+		@media only screen and (min-width: 568px) {
+			display: table-header-group;
+
+			tr {
+				display: table-row;
+
+				th {
+					border-bottom: 2px solid $header-grey;
+					height: 40px;
+					vertical-align: middle;
+					font-family: $font;
+					font-weight: 300;
+					font-size: 14px;
+					padding: 0 8px;
+
+					&:first-child {
+						text-align: left;
+						padding-left: 0;
+					}
+
+					&:nth-child(4) {
+						text-align: right;
+					}
+				}
+			}
+		}
+	}
+
+	tbody tr {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 37px;
+
+		@media only screen and (min-width: 568px) {
+			display: table-row;
+		}
+
+		td {
+			font-family: $font;
+			font-weight: 300;
+			font-size: 14px;
+			height: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			@media only screen and (min-width: 568px) {
+				display: table-cell;
+				height: 50px;
+				text-align: right;
+				vertical-align: middle;
+				padding: 0 8px;
+
+				&:first-child {
+					text-align: left;
+					padding-left: 0;
+				}
+
+				&:last-child {
+					padding-right: 0;
+				}
+
+				&:nth-child(2),
+				&:nth-child(3) {
+					text-align: center;
+				}
+
+				&:nth-child(3) {
+					width: 75px;
+				}
+			}
+
+			&:first-child:not(.no-items) {
+				border-bottom: 2px solid $header-grey;
+				margin-bottom: 8px;
+				height: 40px;
+
+				@media only screen and (min-width: 568px) {
+					border-bottom: none;
+					margin-bottom: 0px;
+					height: 50px;
+				}
+			}
+
+			.label {
+				@media only screen and (min-width: 568px) {
+					display: none;
+				}
+			}
+
+			&.no-items {
+				font-weight: 500;
+				justify-content: center;
+				margin-top: 30px;
+				text-align: center;
+			}
+
+			button {
+				border: none;
+				background: none;
+			}
+		}
+	}
+
+	tfoot tr {
+		display: flex;
+		flex-direction: column;
+
+		@media only screen and (min-width: 568px) {
+			display: table-row;
+
+			&:first-child {
+				td {
+					padding-top: 30px;
+
+					span {
+						height: 40px;
+						line-height: 40px;
+					}
+				}
+			}
+
+			&:last-child {
+				td {
+					padding-top: 30px;
+				}
+			}
+		}
+
+		td {
+			font-family: $font;
+			font-weight: 300;
+			font-size: 14px;
+			height: 30px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			@media only screen and (min-width: 568px) {
+				display: table-cell;
+				text-align: right;
+				height: 40px;
+				vertical-align: middle;
+				padding: 0 8px;
+
+				&:first-child {
+					padding-left: 0;
+				}
+
+				span {
+					&:first-child {
+						float: left;
+					}
+				}
+			}
+		}
+
+		&:last-child {
+			margin-top: 20px;
+
+			td {
+				justify-content: flex-end;
+			}
+
+			button {
+				min-width: 87px;
+				height: 36px;
+				text-transform: uppercase;
+				color: white;
+				font-family: $font;
+				background-color: $blue-color;
+				border-radius: 3px ;
+				opacity: 0.87;
+				font-size: 12px;
+				letter-spacing: 0.33px;
+				text-align: center;
+				border: none;
+				box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.14),
+							0px 3px 4px 0px rgba(0, 0, 0, 0.12),
+							0px 1px 5px 0px rgba(0, 0, 0, 0.20);
+
+				&:disabled {
+					opacity: 0.3;
+				}
+			}
+		}
+	}
+
+}
+
+.amount-input {
+	border: 1px solid $blue-color;
+	height: 28px;
+	border-radius: 3px;
+	width: 75px;
+	display: flex;
+	align-items: center;
+	position: relative;
+
+	input {
+		height: 28px;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+		width: 19px;
+		outline: none;
+		text-align: center;
+		background-color: transparent;
+		font-family: $font;
+		font-weight: 300;
+
+		&::-webkit-outer-spin-button,
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+
+		/* Firefox */
+		&[type=number] {
+			-moz-appearance: textfield;
+		}
+	}
+
+	button {
+		height: 28px;
+		width: 28px;
+		box-sizing: border-box;
+		color: $blue-color;
+		font-size: 15px;
+		padding: 0;
+		line-height: 28px;
+
+		&:disabled {
+			opacity: 0.3;
+		}
+	}
+
+	&.error {
+		border-color: $error-color;
+
+		button {
+			color: $error-color;
+		}
+	}
+}
+
+.stock-quantity {
+	display: flex;
+    align-items: center;
+	justify-content: flex-end;
+}
+
+.stock-warning {
+	color: $error-color;
+	font-size: 12px;
+	font-weight: 500;
+	right: 100%;
+	text-align: right;
+	min-width: 100px;
+	padding-right: 10px;
+}
